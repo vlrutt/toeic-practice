@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>托业阅读 卷九 练习题（带解析）</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background-color: #f4f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #222;
+      font-size: 24px;
+    }
+    .desc {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+    .score-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding:12px 16px;
+      background:#ecf4ff;
+      border-radius:10px;
+    }
+    .q-item {
+      margin-bottom: 32px;
+    }
+    .q-title {
+      font-weight: 600;
+      margin-bottom:10px;
+      line-height:1.7;
+    }
+    .opt-item {
+      padding: 9px 14px;
+      margin:7px 0;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .opt-item:hover {
+      background:#f0f6ff;
+    }
+    .opt-item.selected {
+      background:#cce4ff;
+    }
+    .right {
+      background:#d6f7dd !important;
+    }
+    .wrong {
+      background:#ffdddd !important;
+    }
+    .explain {
+      margin-top:12px;
+      padding:12px 14px;
+      background:#fff8cc;
+      border-radius:8px;
+      display:none;
+      line-height:1.65;
+    }
+    .btn-group {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:40px;
+    }
+    button {
+      padding:10px 26px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .submit-btn {
+      background:#2b78e4;
+      color:white;
+    }
+    .reset-btn {
+      background:#999;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>托业阅读 · 卷九</h1>
+    <div class="desc">提交自动判分 + 每题答案解析</div>
+    <div class="score-box">
+      <span>得分：<span id="score">0</span> / <span id="total">0</span></span>
+      <span id="status">等待提交</span>
+    </div>
+    <div id="wrap"></div>
+    <div class="btn-group">
+      <button class="submit-btn" id="submitBtn">提交试卷</button>
+      <button class="reset-btn" id="resetBtn">重新作答</button>
+    </div>
+  </div>
+
+<script>
+  const questionList = [
+    {
+      type:"single",
+      title:"The annual conference has been ______ to January next year.",
+      options:{
+        A:"postpone",
+        B:"postponed",
+        C:"postponing",
+        D:"postponement"
+      },
+      answer:"B",
+      explain:"答案 B。现在完成时被动 has been postponed，表示“已经被推迟”。"
+    },
+    {
+      type:"single",
+      title:"All reports must be ______ checked before sending to the manager.",
+      options:{
+        A:"complete",
+        B:"completely",
+        C:"completeness",
+        D:"completing"
+      },
+      answer:"B",
+      explain:"答案 B。副词 completely 修饰动词 checked，表示“完整全面地”。"
+    },
+    {
+      type:"single",
+      title:"This new software is very popular ______ office workers.",
+      options:{
+        A:"among",
+        B:"between",
+        C:"inside",
+        D:"along"
+      },
+      answer:"A",
+      explain:"答案 A。among 用于三者及以上人群之中；between 多用于两者之间。"
+    },
+    {
+      type:"single",
+      title:"We will cancel the outdoor meeting ______ it rains heavily.",
+      options:{
+        A:"if",
+        B:"because",
+        C:"so",
+        D:"despite"
+      },
+      answer:"A",
+      explain:"答案 A。if 引导条件状语从句：如果大雨，室外会议取消。"
+    },
+    {
+      type:"single",
+      title:"The daily staff meeting begins ______ 8:45 a.m.",
+      options:{
+        A:"at",
+        B:"on",
+        C:"in",
+        D:"for"
+      },
+      answer:"A",
+      explain:"答案 A。具体时刻前面介词用 at。"
+    },
+    {
+      type:"single",
+      title:"The company will ______ a new safety training course.",
+      options:{
+        A:"introduce",
+        B:"introducing",
+        C:"introduced",
+        D:"introduction"
+      },
+      answer:"A",
+      explain:"答案 A。will 后面接动词原形 introduce，表示“推出”。"
+    },
+    {
+      type:"single",
+      title:"______ the heavy snow, all employees arrived on time.",
+      options:{
+        A:"Despite",
+        B:"Because",
+        C:"Since",
+        D:"If"
+      },
+      answer:"A",
+      explain:"答案 A。despite + 名词，表让步：尽管大雪，全员准时到岗。"
+    },
+    {
+      type:"single",
+      title:"The report gives a clear ______ of last quarter’s sales.",
+      options:{
+        A:"describe",
+        B:"description",
+        C:"descriptive",
+        D:"describing"
+      },
+      answer:"B",
+      explain:"答案 B。description 是名词“描述”，形容词 clear 后面接名词。"
+    },
+    {
+      type:"single",
+      title:"Please ask the delivery man ______ these boxes to the front desk.",
+      options:{
+        A:"bring",
+        B:"bringing",
+        C:"brought",
+        D:"brings"
+      },
+      answer:"A",
+      explain:"答案 A。ask sb. (to) do sth.，bring sth. to somewhere 把货物送到某处。"
+    },
+    {
+      type:"single",
+      title:"The new machine allows workers to work ______.",
+      options:{
+        A:"efficient",
+        B:"efficiently",
+        C:"efficiency",
+        D:"effecting"
+      },
+      answer:"B",
+      explain:"答案 B。副词 efficiently 修饰动词 work，表示“高效地”。"
+    },
+    {
+      type:"single",
+      title:"Our profit this year is higher ______ last year’s profit.",
+      options:{
+        A:"than",
+        B:"then",
+        C:"as",
+        D:"from"
+      },
+      answer:"A",
+      explain:"答案 A。比较级 higher than，高于；then 是“然后”，不能用于比较。"
+    },
+    {
+      type:"single",
+      title:"You cannot enter this room ______ you have permission.",
+      options:{
+        A:"unless",
+        B:"if",
+        C:"because",
+        D:"so that"
+      },
+      answer:"A",
+      explain:"答案 A。unless 除非；除非获得许可，否则不能进入房间。"
+    },
+    {
+      type:"single",
+      title:"The director spoke ______ about the team’s great performance.",
+      options:{
+        A:"enthusiastic",
+        B:"enthusiastically",
+        C:"enthusiasm",
+        D:"enthusiast"
+      },
+      answer:"B",
+      explain:"答案 B。副词 enthusiastically 修饰 spoke，表示“热情地”。"
+    },
+    {
+      type:"single",
+      title:"We are looking for workers ______ can speak two foreign languages.",
+      options:{
+        A:"who",
+        B:"which",
+        C:"whose",
+        D:"whom"
+      },
+      answer:"A",
+      explain:"答案 A。先行词是人，定语从句作主语，用 who。"
+    },
+    {
+      type:"single",
+      title:"You may download the form ______ our official website.",
+      options:{
+        A:"from",
+        B:"at",
+        C:"by",
+        D:"with"
+      },
+      answer:"A",
+      explain:"答案 A。固定搭配 download sth. from the website，从官网下载表格。"
+    },
+    {
+      type:"single",
+      title:"Notice\nTo: All Workers\nFrom: Maintenance\nDate: Nov 21\nThe north elevator will be closed tomorrow from 11 a.m. to 2 p.m. for repair. Please take the stairs or the south elevator.\n\nHow long will the north elevator be closed?",
+      options:{
+        A:"Three hours",
+        B:"Four hours",
+        C:"Five hours",
+        D:"Half day"
+      },
+      answer:"A",
+      explain:"答案 A。上午十一点到下午两点，一共三小时。"
+    },
+    {
+      type:"single",
+      title:"Memo\nTo: Team Leaders\nFrom: Lisa Carter\nSubject: Planning Meeting\nA planning meeting will be held this Thursday at 4 p.m. in Room 907. Please bring your plans.\n\nWhere is the planning meeting?",
+      options:{
+        A:"Room 907",
+        B:"Room 807",
+        C:"Main hall",
+        D:"Cafeteria"
+      },
+      answer:"A",
+      explain:"答案 A。原文地点 in Room 907。"
+    },
+    {
+      type:"single",
+      title:"Email\nDear Ms. Brown,\nYour flight reservation is confirmed. Departure is at 7:30 a.m. and arrival is at 10:10 a.m. Snacks are available on board.\nBest regards,\nSky Air\n\nWhat time does the plane depart?",
+      options:{
+        A:"7:30 a.m.",
+        B:"10:10 a.m.",
+        C:"7:30 p.m.",
+        D:"10:10 p.m."
+      },
+      answer:"A",
+      explain:"答案 A。departure 表示起飞，早上 7:30。"
+    },
+    {
+      type:"single",
+      title:"Announcement\nStarting this Friday, all visitors must sign in at the front desk and get a temporary visitor badge before entering the building.\n\nWhat must visitors get?",
+      options:{
+        A:"A temporary visitor badge",
+        B:"A parking ticket",
+        C:"An employee card",
+        D:"A food coupon"
+      },
+      answer:"A",
+      explain:"答案 A。原文 get a temporary visitor badge，临时访客证。"
+    },
+    {
+      type:"single",
+      title:"Letter\nDear Customer,\nYour package has been shipped today and will arrive within four business days.\n\nWhen will the package arrive?",
+      options:{
+        A:"Within four business days",
+        B:"Tonight",
+        C:"This weekend",
+        D:"Next month"
+      },
+      answer:"A",
+      explain:"答案 A。within four business days，四个工作日之内送达。"
+    }
+  ];
+
+  const wrap = document.getElementById("wrap");
+  const scoreDom = document.getElementById("score");
+  const totalDom = document.getElementById("total");
+  const statusDom = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  let isSubmit = false;
+
+  function renderList(){
+    wrap.innerHTML = "";
+    questionList.forEach((item,idx)=>{
+      const div = document.createElement("div");
+      div.className = "q-item";
+      div.dataset.index = idx;
+      let html = `<div class="q-title">${idx+1}. ${item.title}</div>`;
+      if(item.options){
+        Object.entries(item.options).forEach(([key,text])=>{
+          html += `<div class="opt-item" data-val="${key}">${key}. ${text}</div>`;
+        })
+      }
+      html += `<div class="explain">${item.explain}</div>`;
+      div.innerHTML = html;
+      wrap.appendChild(div);
+    })
+    totalDom.innerText = questionList.length;
+  }
+
+  wrap.addEventListener("click",function(e){
+    if(isSubmit) return;
+    const opt = e.target.closest(".opt-item");
+    if(!opt) return;
+    const parent = opt.closest(".q-item");
+    const allOpt = parent.querySelectorAll(".opt-item");
+    allOpt.forEach(o=> o.classList.remove("selected"));
+    opt.classList.add("selected");
+  })
+
+  function calcScore(){
+    let rightCnt = 0;
+    questionList.forEach((item,idx)=>{
+      const parent = document.querySelector(`.q-item[data-index='${idx}']`);
+      const opts = parent.querySelectorAll(".opt-item");
+      const explainBox = parent.querySelector(".explain");
+      const sel = parent.querySelector(".opt-item.selected");
+      const userAns = sel ? sel.dataset.val : null;
+      const correct = (userAns === item.answer);
+      if(correct) rightCnt++;
+      opts.forEach(o=>{
+        if(o.dataset.val === item.answer){
+          o.classList.add("right");
+        }else if(o.classList.contains("selected")){
+          o.classList.add("wrong");
+        }
+      })
+      explainBox.style.display = "block";
+    })
+    return rightCnt;
+  }
+
+  submitBtn.onclick = function(){
+    if(isSubmit) return;
+    isSubmit = true;
+    const s = calcScore();
+    scoreDom.innerText = s;
+    statusDom.innerText = "已提交 · 批改完成，请看解析";
+  }
+
+  resetBtn.onclick = function(){
+    isSubmit = false;
+    scoreDom.innerText = "0";
+    statusDom.innerText = "等待提交";
+    renderList();
+  }
+
+  renderList();
+</script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>托业阅读 卷三 练习题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background-color: #f4f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #222;
+      font-size: 24px;
+    }
+    .desc {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+    .score-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding:12px 16px;
+      background:#ecf4ff;
+      border-radius:10px;
+    }
+    .q-item {
+      margin-bottom: 28px;
+    }
+    .q-title {
+      font-weight: 600;
+      margin-bottom:10px;
+      line-height:1.7;
+    }
+    .q-passage {
+      background: #f7faff;
+      padding:14px;
+      border-radius:8px;
+      margin-bottom:12px;
+      font-size:15px;
+      line-height:1.65;
+    }
+    .opt-item {
+      padding: 9px 14px;
+      margin:7px 0;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .opt-item:hover {
+      background:#f0f6ff;
+    }
+    .opt-item.selected {
+      background:#cce4ff;
+    }
+    .right {
+      background:#d6f7dd !important;
+    }
+    .wrong {
+      background:#ffdddd !important;
+    }
+    .btn-group {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:40px;
+    }
+    button {
+      padding:10px 26px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .submit-btn {
+      background:#2b78e4;
+      color:white;
+    }
+    .reset-btn {
+      background:#999;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>托业阅读 · 卷三</h1>
+    <div class="desc">托业阅读单选练习题｜提交自动判分</div>
+    <div class="score-box">
+      <span>得分：<span id="score">0</span> / <span id="total">0</span></span>
+      <span id="status">等待提交</span>
+    </div>
+    <div id="wrap"></div>
+    <div class="btn-group">
+      <button class="submit-btn" id="submitBtn">提交试卷</button>
+      <button class="reset-btn" id="resetBtn">重新作答</button>
+    </div>
+  </div>
+
+<script>
+  const questionList = [
+    {
+      type:"single",
+      title:"The board will ______ the new proposal at tomorrow’s meeting.",
+      options:{
+        A:"discussion",
+        B:"discuss",
+        C:"discussing",
+        D:"discussed"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"All orders must be ______ checked before shipment.",
+      options:{
+        A:"careful",
+        B:"carefully",
+        C:"carefulness",
+        D:"care"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"This product is popular ______ customers around the world.",
+      options:{
+        A:"among",
+        B:"between",
+        C:"into",
+        D:"along"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"We will delay the launch ______ technical problems are solved.",
+      options:{
+        A:"until",
+        B:"therefore",
+        C:"so",
+        D:"though"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The training session will take place ______ Friday afternoon.",
+      options:{
+        A:"on",
+        B:"at",
+        C:"in",
+        D:"for"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Mr. Lee was ______ to manage the new overseas branch.",
+      options:{
+        A:"assign",
+        B:"assigned",
+        C:"assignment",
+        D:"assigning"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"______ the tight schedule, the team finished the report on time.",
+      options:{
+        A:"Despite",
+        B:"Because",
+        C:"Since",
+        D:"If"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The company offers an attractive ______ package to new employees.",
+      options:{
+        A:"compensate",
+        B:"compensation",
+        C:"compensatory",
+        D:"compensating"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Please ask the courier ______ the package to the reception desk.",
+      options:{
+        A:"leave",
+        B:"leaving",
+        C:"left",
+        D:"leaves"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The new system helps staff work more ______.",
+      options:{
+        A:"efficiency",
+        B:"efficient",
+        C:"efficiently",
+        D:"effect"
+      },
+      answer:"C"
+    },
+    {
+      type:"single",
+      title:"Sales this month are much higher ______ last month’s figures.",
+      options:{
+        A:"than",
+        B:"then",
+        C:"as",
+        D:"from"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"No entry ______ you have a written permission card.",
+      options:{
+        A:"unless",
+        B:"if",
+        C:"because",
+        D:"so that"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The manager spoke ______ about the excellent quarterly results.",
+      options:{
+        A:"positive",
+        B:"positively",
+        C:"positivity",
+        D:"positiveness"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"We are looking for candidates ______ have rich international experience.",
+      options:{
+        A:"who",
+        B:"which",
+        C:"whose",
+        D:"whom"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"You can download the form ______ our official website.",
+      options:{
+        A:"from",
+        B:"at",
+        C:"by",
+        D:"with"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Notice\nTo: All Employees\nFrom: Security Office\nDate: Nov 21\nThe main parking lot will be closed this Saturday for resurfacing. Staff parking will be available in the west parking area.\n\nWhy is the main parking lot closed?",
+      options:{
+        A:"For resurfacing",
+        B:"For a company party",
+        C:"For vehicle inspection",
+        D:"For new gate installation"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Memo\nTo: All Department Heads\nFrom: Richard Hall\nSubject: Budget Meeting\nThe annual budget review meeting will be held at 10 a.m. this Monday in the boardroom. Please bring your budget proposals.\n\nWhen is the budget meeting?",
+      options:{
+        A:"This Monday at 10 a.m.",
+        B:"This Monday at 2 p.m.",
+        C:"This Friday at 10 a.m.",
+        D:"Next Monday at 10 a.m."
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Email\nDear Ms. Carter,\nThank you for your reservation. Your flight departs at 8:15 a.m. and arrives at 11:30 a.m. A shuttle bus will be waiting outside the arrival gate.\nBest regards,\nSky Airlines\n\nWhat time does the plane depart?",
+      options:{
+        A:"8:15 a.m.",
+        B:"11:30 a.m.",
+        C:"8:15 p.m.",
+        D:"11:30 p.m."
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Announcement\nThe cafeteria will offer a new lunch menu starting next Monday. Fresh salads and homemade soups will be added every weekday.\n\nWhat will the cafeteria add?",
+      options:{
+        A:"Salads and soups",
+        B:"Sandwiches and juice",
+        C:"Steaks and rice",
+        D:"Cakes and coffee"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Letter\nDear Customer,\nYour replacement product has been shipped today and is expected to arrive within three business days. If you have any questions, contact our support team.\n\nWhen will the replacement arrive?",
+      options:{
+        A:"Within three business days",
+        B:"Tomorrow morning",
+        C:"This weekend",
+        D:"Next week"
+      },
+      answer:"A"
+    }
+  ];
+
+  const wrap = document.getElementById("wrap");
+  const scoreDom = document.getElementById("score");
+  const totalDom = document.getElementById("total");
+  const statusDom = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  let isSubmit = false;
+
+  function renderList(){
+    wrap.innerHTML = "";
+    questionList.forEach((item,idx)=>{
+      const div = document.createElement("div");
+      div.className = "q-item";
+      div.dataset.index = idx;
+      let html = `<div class="q-title">${idx+1}. ${item.title}</div>`;
+      div.innerHTML = html;
+      if(item.options){
+        Object.entries(item.options).forEach(([key,text])=>{
+          div.innerHTML += `<div class="opt-item" data-val="${key}">${key}. ${text}</div>`;
+        })
+      }
+      wrap.appendChild(div);
+    })
+    totalDom.innerText = questionList.length;
+  }
+
+  wrap.addEventListener("click",function(e){
+    if(isSubmit) return;
+    const opt = e.target.closest(".opt-item");
+    if(!opt) return;
+    const parent = opt.closest(".q-item");
+    const allOpt = parent.querySelectorAll(".opt-item");
+    allOpt.forEach(o=> o.classList.remove("selected"));
+    opt.classList.add("selected");
+  })
+
+  function calcScore(){
+    let rightCnt = 0;
+    questionList.forEach((item,idx)=>{
+      const parent = document.querySelector(`.q-item[data-index='${idx}']`);
+      const opts = parent.querySelectorAll(".opt-item");
+      const sel = parent.querySelector(".opt-item.selected");
+      const userAns = sel ? sel.dataset.val : null;
+      const correct = (userAns === item.answer);
+      if(correct) rightCnt++;
+      opts.forEach(o=>{
+        if(o.dataset.val === item.answer){
+          o.classList.add("right");
+        }else if(o.classList.contains("selected")){
+          o.classList.add("wrong");
+        }
+      })
+    })
+    return rightCnt;
+  }
+
+  submitBtn.onclick = function(){
+    if(isSubmit) return;
+    isSubmit = true;
+    const s = calcScore();
+    scoreDom.innerText = s;
+    statusDom.innerText = "已提交 · 批改完成";
+  }
+
+  resetBtn.onclick = function(){
+    isSubmit = false;
+    scoreDom.innerText = "0";
+    statusDom.innerText = "等待提交";
+    renderList();
+  }
+
+  renderList();
+</script>
+</body>
+</html>

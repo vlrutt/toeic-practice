@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>托业 Part6 完形填空 测试卷 04</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background-color: #f4f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #222;
+      font-size: 24px;
+    }
+    .desc {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+    .score-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding:12px 16px;
+      background:#ecf4ff;
+      border-radius:10px;
+    }
+    .passage-wrap {
+      margin-bottom: 36px;
+    }
+    .passage-title {
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    .passage-text {
+      margin-bottom:16px;
+      line-height:1.75;
+    }
+    .q-item {
+      margin-bottom: 22px;
+    }
+    .q-title {
+      font-weight: 600;
+      margin-bottom:8px;
+    }
+    .opt-item {
+      padding: 9px 14px;
+      margin:7px 0;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .opt-item:hover {
+      background:#f0f6ff;
+    }
+    .opt-item.selected {
+      background:#cce4ff;
+    }
+    .right {
+      background:#d6f7dd !important;
+    }
+    .wrong {
+      background:#ffdddd !important;
+    }
+    .explain {
+      margin-top:10px;
+      padding:11px 14px;
+      background:#fff8cc;
+      border-radius:8px;
+      display:none;
+      line-height:1.65;
+    }
+    .btn-group {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:40px;
+    }
+    button {
+      padding:10px 28px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .submit-btn {
+      background:#2b78e4;
+      color:white;
+    }
+    .reset-btn {
+      background:#999;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>托业 Part6 完形填空 测试卷 04</h1>
+    <div class="desc">4 篇文章 · 共计 16 题｜提交自动判分 + 答案解析</div>
+    <div class="score-box">
+      <span>得分：<span id="score">0</span> / <span id="total">0</span></span>
+      <span id="status">等待提交</span>
+    </div>
+
+    <div id="wrap">
+      <!-- Passage 1: Elevator Maintenance Notice -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 1: Elevator Maintenance Notice</div>
+        <div class="passage-text">
+          Dear Tenants,
+          The main elevator in our office building will receive regular maintenance this Wednesday morning. The service work will begin at 7:30 a.m. and is expected to finish around 11:30 a.m.
+
+          The elevator will be out of service 　(1)　 all maintenance work is complete. If you need to go to upper floors, please use the stairs on the east side of the hall. We suggest you leave home a few minutes earlier to avoid being late for work.
+
+          We know this temporary shutdown may 　(2)　 some inconvenience for everyone. The building management team truly regrets the trouble. Our technicians will work carefully and efficiently so the elevator can return to normal service 　(3)　.
+
+          If you have any urgent problems during the maintenance, you may reach the property office 　(4)　 telephone. Thank you very much for your patience and cooperation.
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">1.</div>
+          <div class="opt-item" data-val="A">A. until</div>
+          <div class="opt-item" data-val="B">B. therefore</div>
+          <div class="opt-item" data-val="C">C. besides</div>
+          <div class="opt-item" data-val="D">D. despite</div>
+          <div class="explain">答案：A。until 直到；保养全部完成之前电梯停止运行。therefore 因此；besides 此外；despite 尽管。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">2.</div>
+          <div class="opt-item" data-val="A">A. create</div>
+          <div class="opt-item" data-val="B">B. created</div>
+          <div class="opt-item" data-val="C">C. creating</div>
+          <div class="opt-item" data-val="D">D. creative</div>
+          <div class="explain">答案：A。may 后面接动词原形 create；create inconvenience 造成不便。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">3.</div>
+          <div class="opt-item" data-val="A">A. quickly</div>
+          <div class="opt-item" data-val="B">B. quick</div>
+          <div class="opt-item" data-val="C">C. quickness</div>
+          <div class="opt-item" data-val="D">D. speeding</div>
+          <div class="explain">答案：A。副词 quickly 修饰动词 return；快速恢复正常使用。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">4.</div>
+          <div class="opt-item" data-val="A">A. on</div>
+          <div class="opt-item" data-val="B">B. by</div>
+          <div class="opt-item" data-val="C">C. among</div>
+          <div class="opt-item" data-val="D">D. inside</div>
+          <div class="explain">答案：B。by telephone 通过电话，固定搭配。</div>
+        </div>
+      </div>
+
+      <!-- Passage 2: Quarterly Review Memo -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 2: Quarterly Review Memo</div>
+        <div class="passage-text">
+          MEMORANDUM
+          To: All Team Leaders
+          From: Office Administration
+          Date: November 21
+
+          Our quarterly performance review meeting will take place next Friday in the large conference room on the second floor. The meeting will start at 10 a.m. and last approximately three hours.
+
+          Every team leader is 　(5)　 to attend this important review. Please bring your team reports and improvement plans. We will discuss our recent results and set new goals for the coming quarter.
+
+          If you cannot join the meeting for any reason, you must inform your department head in advance. You will be asked to submit a written summary 　(6)　 you cannot be present. The meeting organizers hope we can all share good ideas and help our teams perform 　(7)　.
+
+          Bottled water and light snacks will be available during the break. Please arrive five minutes early so we can begin on schedule. We believe this meeting will be helpful and 　(8)　 to the whole company.
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">5.</div>
+          <div class="opt-item" data-val="A">A. expectation</div>
+          <div class="opt-item" data-val="B">B. expected</div>
+          <div class="opt-item" data-val="C">C. expecting</div>
+          <div class="opt-item" data-val="D">D. expect</div>
+          <div class="explain">答案：B。be expected to do 理应 / 被要求参加，固定被动结构。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">6.</div>
+          <div class="opt-item" data-val="A">A. if</div>
+          <div class="opt-item" data-val="B">B. so</div>
+          <div class="opt-item" data-val="C">C. but</div>
+          <div class="opt-item" data-val="D">D. or</div>
+          <div class="explain">答案：A。if 如果；如果你无法到场，需要提交书面总结。条件状语从句。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">7.</div>
+          <div class="opt-item" data-val="A">A. better</div>
+          <div class="opt-item" data-val="B">B. good</div>
+          <div class="opt-item" data-val="C">C. wonderful</div>
+          <div class="opt-item" data-val="D">D. goodness</div>
+          <div class="explain">答案：A。副词比较级 better；perform better 表现更好，并列比较级。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">8.</div>
+          <div class="opt-item" data-val="A">A. value</div>
+          <div class="opt-item" data-val="B">B. valuable</div>
+          <div class="opt-item" data-val="C">C. valuing</div>
+          <div class="opt-item" data-val="D">D. valuation</div>
+          <div class="explain">答案：B。and 并列 helpful 和 valuable，都是形容词：有帮助且有价值。</div>
+        </div>
+      </div>
+
+      <!-- Passage 3: Shipment Confirmation Email -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 3: Shipment Confirmation Email</div>
+        <div class="passage-text">
+          Dear Mr. Carter,
+
+          Thank you very much for your recent order placed on November 20. All of your items have been carefully inspected and securely packed. Your shipment left our warehouse this morning and should reach your office within two business days.
+
+          A tracking number is shown at the bottom of this email. You may enter this number on our website to monitor your delivery online. If any unexpected delay happens, our customer support team will contact you 　(9)　.
+
+          We always try our best to make sure every shipment arrives safely and on time. We truly appreciate your continuous support. As a sign of our 　(10)　, we are pleased to offer you a special discount on your next purchase.
+
+          If you have any questions about your package, please do not hesitate to 　(11)　 our service representatives. Our working hours are 8 a.m. to 7 p.m., Monday through Friday. We hope you will be fully satisfied 　(12)　 everything you receive.
+
+          Sincerely,
+          Prime Global Shipping Team
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">9.</div>
+          <div class="opt-item" data-val="A">A. quick</div>
+          <div class="opt-item" data-val="B">B. quickly</div>
+          <div class="opt-item" data-val="C">C. quickness</div>
+          <div class="opt-item" data-val="D">D. quickening</div>
+          <div class="explain">答案：B。副词 quickly 修饰动词 contact；迅速联系客户。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">10.</div>
+          <div class="opt-item" data-val="A">A. grateful</div>
+          <div class="opt-item" data-val="B">B. gratitude</div>
+          <div class="opt-item" data-val="C">C. gratefully</div>
+          <div class="opt-item" data-val="D">D. gratifying</div>
+          <div class="explain">答案：B。名词 gratitude；a sign of our gratitude 我们感激之情的表示。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">11.</div>
+          <div class="opt-item" data-val="A">A. reach</div>
+          <div class="opt-item" data-val="B">B. reaching</div>
+          <div class="opt-item" data-val="C">C. reached</div>
+          <div class="opt-item" data-val="D">D. reaches</div>
+          <div class="explain">答案：A。hesitate to do sth.，to 后面接动词原形 reach。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">12.</div>
+          <div class="opt-item" data-val="A">A. with</div>
+          <div class="opt-item" data-val="B">B. for</div>
+          <div class="opt-item" data-val="C">C. toward</div>
+          <div class="opt-item" data-val="D">D. among</div>
+          <div class="explain">答案：A。固定搭配 be satisfied with 对……感到满意。</div>
+        </div>
+      </div>
+
+      <!-- Passage 4: Seasonal Sale Announcement -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 4: Seasonal Sale Announcement</div>
+        <div class="passage-text">
+          Home & Office Supply Center is happy to announce our big seasonal sale! Starting this Thursday, hundreds of popular products will be sold at reduced prices for a limited time.
+
+          You can save up to thirty-five percent on notebooks, storage boxes, cleaning supplies and stationery. This special price applies both in our store and in our online shop. The sale ends on December 1, so please shop early — popular items sell out very 　(13)　.
+
+          All orders above $120 receive free home delivery. If you place your online order before November 27, you will also receive a free gift set. This free gift is available only while supplies 　(14)　.
+
+          Our helpful sales staff are ready to assist you. Whether you are buying small gifts or large office supplies, we promise fair prices and dependable service. We believe our products are affordable and 　(15)　.
+
+          This great offer will not stay available for long. Visit our store or place your online order soon 　(16)　 you do not miss this wonderful seasonal sale!
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">13.</div>
+          <div class="opt-item" data-val="A">A. fast</div>
+          <div class="opt-item" data-val="B">B. fastly</div>
+          <div class="opt-item" data-val="C">C. fastness</div>
+          <div class="opt-item" data-val="D">D. fastest</div>
+          <div class="explain">答案：A。fast 既可作形容词也可作副词；sell out very fast 很快售罄，英语没有 fastly。</div>
+        </div>
+        <div class="q-item">
+          <div class="opt-item" data-val="A">A. remain</div>
+          <div class="opt-item" data-val="B">B. remaining</div>
+          <div class="opt-item" data-val="C">C. remained</div>
+          <div class="opt-item" data-val="D">D. remainder</div>
+          <div class="explain">答案：A。while supplies remain 库存尚存，商务高频固定表达。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">15.</div>
+          <div class="opt-item" data-val="A">A. trust</div>
+          <div class="opt-item" data-val="B">B. trustworthy</div>
+          <div class="opt-item" data-val="C">C. trusting</div>
+          <div class="opt-item" data-val="D">D. trustfully</div>
+          <div class="explain">答案：B。并列形容词 affordable and trustworthy：实惠且值得信赖。</div>
+        </div>
+        <div class="q-item">
+          <div class="opt-item" data-val="A">A. such</div>
+          <div class="opt-item" data-val="B">B. so that</div>
+          <div class="opt-item" data-val="C">C. despite</div>
+          <div class="opt-item" data-val="D">D. because</div>
+          <div class="explain">答案：B。so that 引导目的状语从句；尽快下单，以免错过特惠。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="submit-btn" id="submitBtn">提交试卷</button>
+      <button class="reset-btn" id="resetBtn">重新作答</button>
+    </div>
+  </div>
+
+<script>
+  const answerKey = {
+    "1":"A","2":"A","3":"A","4":"B",
+    "5":"B","6":"A","7":"A","8":"B",
+    "9":"B","10":"B","11":"A","12":"A",
+    "13":"A","14":"A","15":"B","16":"B"
+  };
+
+  const wrap = document.getElementById("wrap");
+  const scoreDom = document.getElementById("score");
+  const totalDom = document.getElementById("total");
+  const statusDom = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  let isSubmit = false;
+
+  function renderTotal(){
+    const allQ = wrap.querySelectorAll(".q-item");
+    totalDom.innerText = allQ.length;
+  }
+
+  wrap.addEventListener("click",function(e){
+    if(isSubmit) return;
+    const opt = e.target.closest(".opt-item");
+    if(!opt) return;
+    const parent = opt.closest(".q-item");
+    const allOpt = parent.querySelectorAll(".opt-item");
+    allOpt.forEach(o=> o.classList.remove("selected"));
+    opt.classList.add("selected");
+  })
+
+  function calcScore(){
+    let rightCnt = 0;
+    const allItems = wrap.querySelectorAll(".q-item");
+    allItems.forEach((item,idx)=>{
+      const qNum = idx + 1;
+      const opts = item.querySelectorAll(".opt-item");
+      const explainBox = item.querySelector(".explain");
+      const sel = item.querySelector(".opt-item.selected");
+      const userVal = sel ? sel.dataset.val : null;
+      const correctVal = answerKey[String(qNum)];
+      if(userVal === correctVal){
+        rightCnt++;
+      }
+      opts.forEach(o=>{
+        if(o.dataset.val === correctVal){
+          o.classList.add("right");
+        }else if(o.classList.contains("selected")){
+          o.classList.add("wrong");
+        }
+      })
+      explainBox.style.display = "block";
+    })
+    return rightCnt;
+  }
+
+  submitBtn.onclick = function(){
+    if(isSubmit) return;
+    isSubmit = true;
+    const s = calcScore();
+    scoreDom.innerText = s;
+    statusDom.innerText = "已提交 · 批改完成，请看解析";
+  }
+
+  resetBtn.onclick = function(){
+    isSubmit = false;
+    const allItems = wrap.querySelectorAll(".q-item");
+    allItems.forEach(item=>{
+      const opts = item.querySelectorAll(".opt-item");
+      const explainBox = item.querySelector(".explain");
+      opts.forEach(o=> o.classList.remove("selected","right","wrong"));
+      explainBox.style.display = "none";
+    })
+    scoreDom.innerText = "0";
+    statusDom.innerText = "等待提交";
+  }
+
+  renderTotal();
+</script>
+</body>
+</html>

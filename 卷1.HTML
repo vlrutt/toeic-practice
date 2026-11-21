@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>托业阅读 卷一 练习题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background-color: #f4f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #222;
+      font-size: 24px;
+    }
+    .desc {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+    .score-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding:12px 16px;
+      background:#ecf4ff;
+      border-radius:10px;
+    }
+    .q-item {
+      margin-bottom: 28px;
+    }
+    .q-title {
+      font-weight: 600;
+      margin-bottom:10px;
+      line-height:1.7;
+    }
+    .q-passage {
+      background: #f7faff;
+      padding:14px;
+      border-radius:8px;
+      margin-bottom:12px;
+      font-size:15px;
+      line-height:1.65;
+    }
+    .opt-item {
+      padding: 9px 14px;
+      margin:7px 0;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .opt-item:hover {
+      background:#f0f6ff;
+    }
+    .opt-item.selected {
+      background:#cce4ff;
+    }
+    .right {
+      background:#d6f7dd !important;
+    }
+    .wrong {
+      background:#ffdddd !important;
+    }
+    .btn-group {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:40px;
+    }
+    button {
+      padding:10px 26px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .submit-btn {
+      background:#2b78e4;
+      color:white;
+    }
+    .reset-btn {
+      background:#999;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>托业阅读 · 卷一</h1>
+    <div class="desc">托业阅读单选练习题｜提交自动判分</div>
+    <div class="score-box">
+      <span>得分：<span id="score">0</span> / <span id="total">0</span></span>
+      <span id="status">等待提交</span>
+    </div>
+    <div id="wrap"></div>
+    <div class="btn-group">
+      <button class="submit-btn" id="submitBtn">提交试卷</button>
+      <button class="reset-btn" id="resetBtn">重新作答</button>
+    </div>
+  </div>
+
+<script>
+  const questionList = [
+    {
+      type:"single",
+      title:"The manager asked all staff to arrive ______ for the morning meeting.",
+      options:{
+        A:"early",
+        B:"earlier",
+        C:"earliest",
+        D:"earliness"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Sales figures have increased ______ since the new campaign was launched.",
+      options:{
+        A:"significant",
+        B:"significantly",
+        C:"significance",
+        D:"significate"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Mr. Park will be responsible ______ coordinating the international shipment.",
+      options:{
+        A:"for",
+        B:"to",
+        C:"with",
+        D:"on"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The report must be submitted ______ Friday at 5 p.m.",
+      options:{
+        A:"by",
+        B:"until",
+        C:"during",
+        D:"while"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"______ many applicants applied, only five were invited for an interview.",
+      options:{
+        A:"Despite",
+        B:"Although",
+        C:"Because",
+        D:"If"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"We are pleased to announce that Ms. Lee has been ______ to senior director.",
+      options:{
+        A:"promote",
+        B:"promoted",
+        C:"promotion",
+        D:"promoting"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"The conference room is available ______ 10 a.m. and 3 p.m.",
+      options:{
+        A:"among",
+        B:"between",
+        C:"inside",
+        D:"along"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Please make sure ______ all documents are attached to the form.",
+      options:{
+        A:"which",
+        B:"that",
+        C:"what",
+        D:"who"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"The new software is ______ faster than the old version.",
+      options:{
+        A:"considerable",
+        B:"considerably",
+        C:"consideration",
+        D:"consider"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"The company will provide ______ with a free training workshop next month.",
+      options:{
+        A:"employee",
+        B:"employees",
+        C:"employing",
+        D:"employment"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"We cannot process your order ______ we receive the payment confirmation.",
+      options:{
+        A:"until",
+        B:"therefore",
+        C:"besides",
+        D:"whether"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The technician arrived ______ to repair the broken printer.",
+      options:{
+        A:"prompt",
+        B:"promptly",
+        C:"promptness",
+        D:"prompting"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"______ the weather was bad, the delivery arrived on time.",
+      options:{
+        A:"In spite of",
+        B:"Despite",
+        C:"Even though",
+        D:"Because of"
+      },
+      answer:"C"
+    },
+    {
+      type:"single",
+      title:"All visitors must register at the front desk ______ entering the building.",
+      options:{
+        A:"before",
+        B:"ago",
+        C:"since",
+        D:"while"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"The CEO’s speech was ______ received by everyone in the audience.",
+      options:{
+        A:"warm",
+        B:"warmly",
+        C:"warmth",
+        D:"warming"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Notice\nTo: All Office Staff\nFrom: Administration\nDate: November 21\nThe main elevator will be closed for maintenance on Wednesday from 9:00 a.m. to 1:00 p.m. Please use the stairs or the side elevator during this time. We apologize for the inconvenience.\n\nWhen is the main elevator closed?",
+      options:{
+        A:"Every Wednesday all day",
+        B:"Wednesday morning to early afternoon",
+        C:"After 1 p.m. on Wednesday",
+        D:"Only on November 20"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Memo\nTo: Sales Team\nFrom: Robert Kim\nSubject: Client Visit\nMr. Henderson from Global Trade will visit our office this Friday at 11 a.m. Please prepare your product brochures and price lists. We will meet in the second-floor meeting room.\n\nWhere will the meeting take place?",
+      options:{
+        A:"At Global Trade office",
+        B:"In the second-floor meeting room",
+        C:"In the main lobby",
+        D:"In the sales lounge"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Email\nDear Ms. Watson,\nThank you for your order #7742. Your items have been shipped and should arrive within three business days. If you have any questions, contact our customer service.\nSincerely,\nFast Delivery Inc.\n\nHow long will it take for the goods to arrive?",
+      options:{
+        A:"Three business days",
+        B:"One week",
+        C:"Within 24 hours",
+        D:"Next Monday"
+      },
+      answer:"A"
+    },
+    {
+      type:"single",
+      title:"Announcement\nNew parking rules start next Monday. Employees must display a parking sticker on the front window. Cars without stickers will be towed away.\n\nWhat must employees do to park?",
+      options:{
+        A:"Pay every day",
+        B:"Show a parking sticker",
+        C:"Park only after 9 a.m.",
+        D:"Register their license plate"
+      },
+      answer:"B"
+    },
+    {
+      type:"single",
+      title:"Letter\nDear Mr. Torres,\nWe are happy to invite you to the annual business dinner on December 5 at the Grand Hotel. Please reply by November 28 to confirm your seat.\n\nBy when should Mr. Torres reply?",
+      options:{
+        A:"December 5",
+        B:"November 28",
+        C:"December 1",
+        D:"November 5"
+      },
+      answer:"B"
+    }
+  ];
+
+  const wrap = document.getElementById("wrap");
+  const scoreDom = document.getElementById("score");
+  const totalDom = document.getElementById("total");
+  const statusDom = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  let isSubmit = false;
+
+  function renderList(){
+    wrap.innerHTML = "";
+    questionList.forEach((item,idx)=>{
+      const div = document.createElement("div");
+      div.className = "q-item";
+      div.dataset.index = idx;
+      let html = `<div class="q-title">${idx+1}. ${item.title}</div>`;
+      div.innerHTML = html;
+      if(item.options){
+        Object.entries(item.options).forEach(([key,text])=>{
+          div.innerHTML += `<div class="opt-item" data-val="${key}">${key}. ${text}</div>`;
+        })
+      }
+      wrap.appendChild(div);
+    })
+    totalDom.innerText = questionList.length;
+  }
+
+  wrap.addEventListener("click",function(e){
+    if(isSubmit) return;
+    const opt = e.target.closest(".opt-item");
+    if(!opt) return;
+    const parent = opt.closest(".q-item");
+    const allOpt = parent.querySelectorAll(".opt-item");
+    allOpt.forEach(o=> o.classList.remove("selected"));
+    opt.classList.add("selected");
+  })
+
+  function calcScore(){
+    let rightCnt = 0;
+    questionList.forEach((item,idx)=>{
+      const parent = document.querySelector(`.q-item[data-index='${idx}']`);
+      const opts = parent.querySelectorAll(".opt-item");
+      const sel = parent.querySelector(".opt-item.selected");
+      const userAns = sel ? sel.dataset.val : null;
+      const correct = (userAns === item.answer);
+      if(correct) rightCnt++;
+      opts.forEach(o=>{
+        if(o.dataset.val === item.answer){
+          o.classList.add("right");
+        }else if(o.classList.contains("selected")){
+          o.classList.add("wrong");
+        }
+      })
+    })
+    return rightCnt;
+  }
+
+  submitBtn.onclick = function(){
+    if(isSubmit) return;
+    isSubmit = true;
+    const s = calcScore();
+    scoreDom.innerText = s;
+    statusDom.innerText = "已提交 · 批改完成";
+  }
+
+  resetBtn.onclick = function(){
+    isSubmit = false;
+    scoreDom.innerText = "0";
+    statusDom.innerText = "等待提交";
+    renderList();
+  }
+
+  renderList();
+</script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>托业 Part6 完形填空 测试卷 05</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background-color: #f4f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      color: #222;
+      font-size: 24px;
+    }
+    .desc {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+    .score-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding:12px 16px;
+      background:#ecf4ff;
+      border-radius:10px;
+    }
+    .passage-wrap {
+      margin-bottom: 36px;
+    }
+    .passage-title {
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    .passage-text {
+      margin-bottom:16px;
+      line-height:1.75;
+    }
+    .q-item {
+      margin-bottom: 22px;
+    }
+    .q-title {
+      font-weight: 600;
+      margin-bottom:8px;
+    }
+    .opt-item {
+      padding: 9px 14px;
+      margin:7px 0;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .opt-item:hover {
+      background:#f0f6ff;
+    }
+    .opt-item.selected {
+      background:#cce4ff;
+    }
+    .right {
+      background:#d6f7dd !important;
+    }
+    .wrong {
+      background:#ffdddd !important;
+    }
+    .explain {
+      margin-top:10px;
+      padding:11px 14px;
+      background:#fff8cc;
+      border-radius:8px;
+      display:none;
+      line-height:1.65;
+    }
+    .btn-group {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-top:40px;
+    }
+    button {
+      padding:10px 28px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .submit-btn {
+      background:#2b78e4;
+      color:white;
+    }
+    .reset-btn {
+      background:#999;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>托业 Part6 完形填空 测试卷 05</h1>
+    <div class="desc">4 篇文章 · 共计 16 题｜提交自动判分 + 答案解析</div>
+    <div class="score-box">
+      <span>得分：<span id="score">0</span> / <span id="total">0</span></span>
+      <span id="status">等待提交</span>
+    </div>
+
+    <div id="wrap">
+      <!-- Passage 1: Job Fair Announcement -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 1: Job Fair Announcement</div>
+        <div class="passage-text">
+          Dear Graduates,
+          The annual city job fair will be held at the downtown convention center next Friday. The event opens at 9:00 a.m. and will continue 　(1)　 all visitors finish their interviews. More than eighty companies will set up booths to meet new candidates.
+
+          We suggest you arrive early, because long lines may 　(2)　 delays at the entrance. Please bring copies of your resume and a photo ID. Many employers plan to offer on-site interviews.
+
+          Our volunteers will guide you around the hall so that everything can run 　(3)　. If you have any questions before the day, you may contact the event office 　(4)　 email. We look forward to seeing you there.
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">1.</div>
+          <div class="opt-item" data-val="A">A. until</div>
+          <div class="opt-item" data-val="B">B. therefore</div>
+          <div class="opt-item" data-val="C">C. besides</div>
+          <div class="opt-item" data-val="D">D. despite</div>
+          <div class="explain">答案：A。until 直到；招聘会持续到所有访客结束面试。therefore 因此；besides 此外；despite 尽管。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">2.</div>
+          <div class="opt-item" data-val="A">A. cause</div>
+          <div class="opt-item" data-val="B">B. caused</div>
+          <div class="opt-item" data-val="C">C. causing</div>
+          <div class="opt-item" data-val="D">D. causative</div>
+          <div class="explain">答案：A。may 情态动词后接动词原形 cause；cause delays 造成延误。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">3.</div>
+          <div class="opt-item" data-val="A">A. smoothly</div>
+          <div class="opt-item" data-val="B">B. smooth</div>
+          <div class="opt-item" data-val="C">C. smoothness</div>
+          <div class="opt-item" data-val="D">D. smoothing</div>
+          <div class="explain">答案：A。副词 smoothly 修饰动词 run；运转顺利。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">4.</div>
+          <div class="opt-item" data-val="A">A. on</div>
+          <div class="opt-item" data-val="B">B. by</div>
+          <div class="opt-item" data-val="C">C. among</div>
+          <div class="opt-item" data-val="D">D. inside</div>
+          <div class="explain">答案：B。by email 通过电子邮件，固定搭配。</div>
+        </div>
+      </div>
+
+      <!-- Passage 2: Employee Wellness Memo -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 2: Employee Wellness Memo</div>
+        <div class="passage-text">
+          MEMORANDUM
+          To: All Staff
+          From: Human Resources
+          Date: November 21
+
+          Our company wellness day will take place next Wednesday in the fitness room on the first floor. The program begins at 10 a.m. and ends at 3 p.m.
+
+          Every employee is 　(5)　 to join this free wellness activity. You can join yoga classes, health checks and nutrition talks. These activities help you relax and stay healthy.
+
+          You must tell your supervisor ahead of time 　(6)　 you cannot attend. The HR team hopes everyone can take part and work 　(7)　 after the break.
+
+          Fresh fruit and bottled water will be provided. Please wear comfortable shoes and clothes. We believe this day will be enjoyable and 　(8)　 for all members of our team.
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">5.</div>
+          <div class="opt-item" data-val="A">A. expectation</div>
+          <div class="opt-item" data-val="B">B. expected</div>
+          <div class="opt-item" data-val="C">C. expecting</div>
+          <div class="opt-item" data-val="D">D. expect</div>
+          <div class="explain">答案：B。be expected to do 被期望参加；标准被动结构。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">6.</div>
+          <div class="opt-item" data-val="A">A. if</div>
+          <div class="opt-item" data-val="B">B. so</div>
+          <div class="opt-item" data-val="C">C. but</div>
+          <div class="opt-item" data-val="D">D. or</div>
+          <div class="explain">答案：A。if 如果；如果你不能参加，请提前告知主管。条件状语从句。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">7.</div>
+          <div class="opt-item" data-val="A">A. better</div>
+          <div class="opt-item" data-val="B">B. good</div>
+          <div class="opt-item" data-val="C">C. wonderful</div>
+          <div class="opt-item" data-val="D">D. goodness</div>
+          <div class="explain">答案：A。副词比较级 better；休息之后工作状态更好。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">8.</div>
+          <div class="opt-item" data-val="A">A. benefit</div>
+          <div class="opt-item" data-val="B">B. beneficial</div>
+          <div class="opt-item" data-val="C">C. benefiting</div>
+          <div class="opt-item" data-val="D">D. benefitial</div>
+          <div class="explain">答案：B。and 并列 enjoyable 和 beneficial；令人愉快并且有益。</div>
+        </div>
+      </div>
+
+      <!-- Passage 3: Hotel Reservation Confirmation -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 3: Hotel Reservation Confirmation</div>
+        <div class="passage-text">
+          Dear Ms. Harper,
+
+          Thank you for your reservation at Golden View Hotel. We have reserved a deluxe room for you from December 5 to December 8. Your booking has been confirmed successfully.
+
+          Your check-in time starts at 3:00 p.m. If you arrive earlier, we will try our best to prepare your room 　(9)　. A copy of your reservation details is attached to this message.
+
+          We value your choice of our hotel. As a sign of our 　(10)　, we have added a free breakfast service to your booking.
+
+          If you need to change or cancel your stay, please do not hesitate to 　(11)　 our front desk. Our reception team is available twenty-four hours a day. We hope you will be fully satisfied 　(12)　 your stay with us.
+
+          Sincerely,
+          Golden View Hotel Guest Services
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">9.</div>
+          <div class="opt-item" data-val="A">A. prompt</div>
+          <div class="opt-item" data-val="B">B. promptly</div>
+          <div class="opt-item" data-val="C">C. promptness</div>
+          <div class="opt-item" data-val="D">D. prompting</div>
+          <div class="explain">答案：B。副词 promptly 修饰动词 prepare；迅速准备好客房。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">10.</div>
+          <div class="opt-item" data-val="A">A. appreciate</div>
+          <div class="opt-item" data-val="B">B. appreciative</div>
+          <div class="opt-item" data-val="C">C. appreciation</div>
+          <div class="opt-item" data-val="D">D. appreciating</div>
+          <div class="explain">答案：C。名词 appreciation；a sign of our appreciation 表达我们的谢意。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">11.</div>
+          <div class="opt-item" data-val="A">A. contact</div>
+          <div class="opt-item" data-val="B">B. contacting</div>
+          <div class="opt-item" data-val="C">C. contacted</div>
+          <div class="opt-item" data-val="D">D. contacts</div>
+          <div class="explain">答案：A。hesitate to do sth.，to 后面接动词原形 contact。</div>
+        </div>
+        <div class="q-item">
+          <div class="opt-item" data-val="A">A. with</div>
+          <div class="opt-item" data-val="B">B. for</div>
+          <div class="opt-item" data-val="C">C. toward</div>
+          <div class="opt-item" data-val="D">D. among</div>
+          <div class="explain">答案：A。固定搭配 be satisfied with；对入住体验感到满意。</div>
+        </div>
+      </div>
+
+      <!-- Passage 4: Art Gallery Notice -->
+      <div class="passage-wrap">
+        <div class="passage-title">Passage 4: Art Gallery Notice</div>
+        <div class="passage-text">
+          The City Art Gallery is pleased to announce our new winter exhibition! The show opens this Saturday and will run for four weeks. Many famous paintings and photographs will be on display.
+
+          Tickets are available online and at the front desk. Visitors are asked to arrive early, because popular time slots fill up very 　(13)　. Special guided tours are offered every afternoon.
+
+          All ticket holders receive a free exhibition brochure. This free item is available only while supplies 　(14)　.
+
+          Our gallery guides are ready to answer your questions. We offer quiet and comfortable spaces for you to enjoy the artwork. We believe our exhibition is interesting and 　(15)　.
+
+          This wonderful show will close soon. Book your ticket soon 　(16)　 you do not miss this special winter exhibition!
+        </div>
+
+        <div class="q-item">
+          <div class="q-title">13.</div>
+          <div class="opt-item" data-val="A">A. quickly</div>
+          <div class="opt-item" data-val="B">B. quick</div>
+          <div class="opt-item" data-val="C">C. quickness</div>
+          <div class="opt-item" data-val="D">D. quickest</div>
+          <div class="explain">答案：A。副词 quickly 修饰 fill up；时段很快被约满。</div>
+        </div>
+        <div class="q-item">
+          <div class="opt-item" data-val="A">A. last</div>
+          <div class="opt-item" data-val="B">B. lasting</div>
+          <div class="opt-item" data-val="C">C. lasted</div>
+          <div class="opt-item" data-val="D">D. lastly</div>
+          <div class="explain">答案：A。while supplies last 经典托业高频短语：库存有限，赠完为止。</div>
+        </div>
+        <div class="q-item">
+          <div class="q-title">15.</div>
+          <div class="opt-item" data-val="A">A. inspire</div>
+          <div class="opt-item" data-val="B">B. inspiring</div>
+          <div class="opt-item" data-val="C">C. inspiration</div>
+          <div class="opt-item" data-val="D">D. inspired</div>
+          <div class="explain">答案：B。并列形容词 interesting and inspiring；有趣并且鼓舞人心。</div>
+        </div>
+        <div class="q-item">
+          <div class="opt-item" data-val="A">A. such</div>
+          <div class="opt-item" data-val="B">B. so that</div>
+          <div class="opt-item" data-val="C">C. despite</div>
+          <div class="opt-item" data-val="D">D. because</div>
+          <div class="explain">答案：B。so that 引导目的状语从句；尽快订票，不错过本次特展。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="submit-btn" id="submitBtn">提交试卷</button>
+      <button class="reset-btn" id="resetBtn">重新作答</button>
+    </div>
+  </div>
+
+<script>
+  const answerKey = {
+    "1":"A","2":"A","3":"A","4":"B",
+    "5":"B","6":"A","7":"A","8":"B",
+    "9":"B","10":"C","11":"A","12":"A",
+    "13":"A","14":"A","15":"B","16":"B"
+  };
+
+  const wrap = document.getElementById("wrap");
+  const scoreDom = document.getElementById("score");
+  const totalDom = document.getElementById("total");
+  const statusDom = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  let isSubmit = false;
+
+  function renderTotal(){
+    const allQ = wrap.querySelectorAll(".q-item");
+    totalDom.innerText = allQ.length;
+  }
+
+  wrap.addEventListener("click",function(e){
+    if(isSubmit) return;
+    const opt = e.target.closest(".opt-item");
+    if(!opt) return;
+    const parent = opt.closest(".q-item");
+    const allOpt = parent.querySelectorAll(".opt-item");
+    allOpt.forEach(o=> o.classList.remove("selected"));
+    opt.classList.add("selected");
+  })
+
+  function calcScore(){
+    let rightCnt = 0;
+    const allItems = wrap.querySelectorAll(".q-item");
+    allItems.forEach((item,idx)=>{
+      const qNum = idx + 1;
+      const opts = item.querySelectorAll(".opt-item");
+      const explainBox = item.querySelector(".explain");
+      const sel = item.querySelector(".opt-item.selected");
+      const userVal = sel ? sel.dataset.val : null;
+      const correctVal = answerKey[String(qNum)];
+      if(userVal === correctVal){
+        rightCnt++;
+      }
+      opts.forEach(o=>{
+        if(o.dataset.val === correctVal){
+          o.classList.add("right");
+        }else if(o.classList.contains("selected")){
+          o.classList.add("wrong");
+        }
+      })
+      explainBox.style.display = "block";
+    })
+    return rightCnt;
+  }
+
+  submitBtn.onclick = function(){
+    if(isSubmit) return;
+    isSubmit = true;
+    const s = calcScore();
+    scoreDom.innerText = s;
+    statusDom.innerText = "已提交 · 批改完成，请看解析";
+  }
+
+  resetBtn.onclick = function(){
+    isSubmit = false;
+    const allItems = wrap.querySelectorAll(".q-item");
+    allItems.forEach(item=>{
+      const opts = item.querySelectorAll(".opt-item");
+      const explainBox = item.querySelector(".explain");
+      opts.forEach(o=> o.classList.remove("selected","right","wrong"));
+      explainBox.style.display = "none";
+    })
+    scoreDom.innerText = "0";
+    statusDom.innerText = "等待提交";
+  }
+
+  renderTotal();
+</script>
+</body>
+</html>
